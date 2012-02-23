@@ -2,7 +2,7 @@
 /**
  * The SonicLiving API PHP Library
  * @author Butch Ewing - http://butchewing.com
- * @version 0.01
+ * @version 0.02
  *
  * The SonicLiving API requires an API key and is available for both commercial and non-commercial use.
  * V1 API Documentation can be found at http://sonicliving.com/apiv1
@@ -16,7 +16,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 		protected $api_key;
 		protected $v1_api_endpoint = "https://api.sonicliving.com/api/";
 		protected $v2_api_endpoint = "https://api.sonicliving.com/v2/";
-		protected $user_agent = "Sonic Living PHP Library v0.01";
+		protected $user_agent = "Sonic Living PHP Library v0.02";
 	
 		/**
 		 * Sets the API for the Instance of the Class
@@ -104,12 +104,12 @@ if ( ! class_exists( 'SonicLiving' ) )
 				
 				if ( $host_info )
 				{
-					$url .= "&" . $host_info;
+					$url .= "&host_info=" . $host_info;
 				}
 				
 				if ( $offset )
 				{
-					$url .= "&" . $offset;
+					$url .= "&offset=" . $offset;
 				}
 				
 				return $this->_curl( $url );
@@ -139,7 +139,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 				
 				if ( $sort )
 				{
-					$url .= "&" . $sort;
+					$url .= "&sort=" . $sort;
 				}
 				
 				return $this->_curl( $url );
@@ -173,27 +173,27 @@ if ( ! class_exists( 'SonicLiving' ) )
 				
 				if ( $ip_address )
 				{
-					$url .= "&" . $ip_address;
+					$url .= "&ip_address=" . $ip_address;
 				}
 				
 				if ( $latitude )
 				{
-					$url .= "&" . $sort;
+					$url .= "&sort=" . $sort;
 				}
 				
 				if ( $longitude )
 				{
-					$url .= "&" . $longitude;
+					$url .= "&longitude=" . $longitude;
 				}
 				
 				if ( $sort )
 				{
-					$url .= "&" . $sort;
+					$url .= "&sort=" . $sort;
 				}
 				
 				if ( $limit )
 				{
-					$url .= "&" . $limit;
+					$url .= "&limit=" . $limit;
 				}
 				
 				return $this->_curl( $url );
@@ -251,27 +251,27 @@ if ( ! class_exists( 'SonicLiving' ) )
 				
 				if ( $postalcode )
 				{
-					$url .= "&" . $postalcode;
+					$url .= "&postalcode=" . $postalcode;
 				}
 				
 				if ( $ip_address )
 				{
-					$url .= "&" . $ip_address;
+					$url .= "&ip_address=" . $ip_address;
 				}
 				
 				if ( $latitude )
 				{
-					$url .= "&" . $sort;
+					$url .= "&sort=" . $sort;
 				}
 				
 				if ( $longitude )
 				{
-					$url .= "&" . $longitude;
+					$url .= "&longitude=" . $longitude;
 				}
 				
 				if ( $radius )
 				{
-					$url .= "&" . $radius;
+					$url .= "&radius=" . $radius;
 				}
 				
 				return $this->_curl( $url );
@@ -297,7 +297,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 			}
 			else
 			{
-				$url = $this->v2_api_endpoint . "location/recognize?key=" . $this->api_key . "&" . $search;
+				$url = $this->v2_api_endpoint . "location/recognize?key=" . $this->api_key . "&search=" . $search;
 				return $this->_curl( $url );
 			}
 		}
@@ -396,7 +396,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 				
 				if ( $host_id )
 				{
-					$url .= "&" . $host_id;
+					$url .= "&host_id=" . $host_id;
 				}
 				
 				return $this->_curl( $url );
@@ -469,7 +469,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 			}
 			else
 			{
-				$url = $this->v2_api_endpoint . "venue/get?key=" . $this->api_key . "&" . $venue_id;
+				$url = $this->v2_api_endpoint . "venue/get?key=" . $this->api_key . "&venue_id=" . $venue_id;
 				return $this->_curl( $url );
 			}
 		}
@@ -498,12 +498,12 @@ if ( ! class_exists( 'SonicLiving' ) )
 				
 				if ( $name )
 				{
-					$url .= "&" . $name;
+					$url .= "&name=" . $name;
 				}
 				
 				if ( $city_id )
 				{
-					$url .= "&" . $city_id;
+					$url .= "&city_id=" . $city_id;
 				}
 				
 				return $this->_curl( $url );
@@ -529,7 +529,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 			}
 			else
 			{
-				$url = $this->v2_api_endpoint . "venue/recognize?key=" . $this->api_key . "&" . $search;				
+				$url = $this->v2_api_endpoint . "venue/recognize?key=" . $this->api_key . "&search=" . $search;				
 				return $this->_curl( $url );
 			}
 		}
@@ -553,7 +553,7 @@ if ( ! class_exists( 'SonicLiving' ) )
 			}
 			else
 			{
-				$url = $this->v2_api_endpoint . "venue/upcoming?key=" . $this->api_key . "&" . $venue_id;				
+				$url = $this->v2_api_endpoint . "venue/upcoming?key=" . $this->api_key . "&venue_id=" . $venue_id;				
 				return $this->_curl( $url );
 			}
 		}
